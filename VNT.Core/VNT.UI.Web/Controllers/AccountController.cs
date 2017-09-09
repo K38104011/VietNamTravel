@@ -24,24 +24,12 @@ namespace VNT.UI.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            //var claimsIdentity = new ClaimsIdentity
-            //(new[] { new Claim(ClaimTypes.Name, model.UserName) },
-            //    DefaultAuthenticationTypes.ApplicationCookie
-            //);
-            //HttpContext.GetOwinContext().Authentication.SignIn(
-            //    new AuthenticationProperties
-            //    {
-            //        IsPersistent = true,
-            //        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-            //    },
-            //    claimsIdentity
-            //);
-
             var genericIdentity = new GenericIdentity(model.UserName, DefaultAuthenticationTypes.ApplicationCookie);
             genericIdentity.AddClaims(new[]
             {
                 new Claim(ClaimTypes.Name, model.UserName),
-                new Claim(ClaimTypes.Role, "Admin"), 
+                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim("/CustomClaim/Permission", "Contact"), 
             });
             HttpContext.GetOwinContext().Authentication.SignIn(
                 new AuthenticationProperties
@@ -51,7 +39,7 @@ namespace VNT.UI.Web.Controllers
                 },
                 genericIdentity
             );
-            return View();
+            return Redirect(model.ReturnUrl);
         }
     }
 }

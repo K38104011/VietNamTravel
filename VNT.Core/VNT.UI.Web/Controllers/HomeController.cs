@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VNT.UI.Web.Filters;
 
 namespace VNT.UI.Web.Controllers
 {
@@ -21,6 +22,7 @@ namespace VNT.UI.Web.Controllers
             return View();
         }
 
+        [Permission("Contact")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
