@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -22,17 +24,32 @@ namespace VNT.UI.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            var claimsIdentity = new ClaimsIdentity
-            (new[] { new Claim(ClaimTypes.Name, model.UserName) },
-                DefaultAuthenticationTypes.ApplicationCookie
-            );
+            //var claimsIdentity = new ClaimsIdentity
+            //(new[] { new Claim(ClaimTypes.Name, model.UserName) },
+            //    DefaultAuthenticationTypes.ApplicationCookie
+            //);
+            //HttpContext.GetOwinContext().Authentication.SignIn(
+            //    new AuthenticationProperties
+            //    {
+            //        IsPersistent = true,
+            //        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+            //    },
+            //    claimsIdentity
+            //);
+
+            var genericIdentity = new GenericIdentity(model.UserName, DefaultAuthenticationTypes.ApplicationCookie);
+            genericIdentity.AddClaims(new[]
+            {
+                new Claim(ClaimTypes.Name, model.UserName),
+                new Claim(ClaimTypes.Role, "Admin"), 
+            });
             HttpContext.GetOwinContext().Authentication.SignIn(
                 new AuthenticationProperties
                 {
                     IsPersistent = true,
                     ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
                 },
-                claimsIdentity
+                genericIdentity
             );
             return View();
         }
