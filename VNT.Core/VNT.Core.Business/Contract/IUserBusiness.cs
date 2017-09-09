@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using VNT.Core.Model;
 
 namespace VNT.Core.Business.Contract
 {
-    interface IUserBusiness
+    public interface IUserBusiness
     {
+        void Create(User user);
+        bool IsExisted(User user);
     }
 }

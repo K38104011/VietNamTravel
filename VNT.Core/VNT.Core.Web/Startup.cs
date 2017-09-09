@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Web.Mvc;
+using Autofac;
+using Autofac.Integration.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -20,6 +22,15 @@ namespace VNT.UI.Web
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
             });
+
+            var builder = new ContainerBuilder();
+
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterModule<VNT.Core.Business.WireUpModule>();
+
+            var container = builder.Build();
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

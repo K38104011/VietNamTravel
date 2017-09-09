@@ -6,5 +6,6 @@ namespace VNT.Core.EF.DataAccess.Repository.Contract
     {
         IQueryable<T> GetAll();
         void Insert(T entity, bool saveChanges = false);
+        void Dispose();
     }
 }

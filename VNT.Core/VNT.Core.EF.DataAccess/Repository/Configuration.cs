@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using VNT.Core.EF.DataAccess.Model;
+using VNT.Core.Model;
 
 namespace VNT.Core.EF.DataAccess.Repository
 {

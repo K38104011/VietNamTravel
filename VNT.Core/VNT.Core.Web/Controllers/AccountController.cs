@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using VNT.Core.Business;
-using VNT.Core.EF.DataAccess.Model;
+using VNT.Core.Business.Contract;
+using VNT.Core.Model;
 using VNT.Core.Web.Models;
 using VNT.UI.Web.Models;
 
@@ -14,11 +14,11 @@ namespace VNT.UI.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserBusiness _userBusiness;
+        private readonly IUserBusiness _userBusiness;
 
-        public AccountController()
+        public AccountController(IUserBusiness userBusiness)
         {
-            _userBusiness = new UserBusiness();
+            _userBusiness = userBusiness;
         }
 
         [HttpGet]

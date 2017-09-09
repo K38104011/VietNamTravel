@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VNT.Core.EF.DataAccess.Model
+namespace VNT.Core.Model
 {
     public class Role
     {

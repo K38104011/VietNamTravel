@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using VNT.Core.EF.DataAccess.Model;
 using VNT.Core.EF.DataAccess.Repository;
+using VNT.Core.Model;
 
 namespace VNT.Core.EF.DataAccess
 {

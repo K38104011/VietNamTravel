@@ -1,0 +1,7 @@
+﻿{
+  "modules": [
+    {
+      "type": "VNT.Core.Business.WireUpModule , VNT.Core.Business"
+    }
+  ] 
+}

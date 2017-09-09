@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,12 +47,20 @@
     <Compile Include="Contract\IUserBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserBusiness.cs" />
+    <Compile Include="WireUpModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VNT.Core.EF.DataAccess\VNT.Core.EF.DataAccess.csproj">
       <Project>{6278399a-2272-47c4-9de1-b9695d528cee}</Project>
       <Name>VNT.Core.EF.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VNT.Core\VNT.Core.csproj">
+      <Project>{50388cad-cf88-4d0c-9e16-4a5df57d63de}</Project>
+      <Name>VNT.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,18 +1,17 @@
 ﻿using System.Linq;
-using System.Security.Cryptography;
 using VNT.Core.Business.Contract;
-using VNT.Core.EF.DataAccess.Model;
-using VNT.Core.EF.DataAccess.Repository;
+using VNT.Core.EF.DataAccess.Repository.Contract;
+using VNT.Core.Model;
 
 namespace VNT.Core.Business
 {
     public class UserBusiness : IUserBusiness
     {
-        private readonly UserRepository _repository;
+        private readonly IUserRepository _repository;
 
-        public UserBusiness()
+        public UserBusiness(IUserRepository userRepository)
         {
-            _repository = new UserRepository();
+            _repository = userRepository;
         }
 
         public void Create(User user)
