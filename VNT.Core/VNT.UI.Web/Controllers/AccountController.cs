@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Web;
+using System.Web.Http.Controllers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -39,6 +40,7 @@ namespace VNT.UI.Web.Controllers
                 },
                 genericIdentity
             );
+            Thread.CurrentPrincipal = new ClaimsPrincipal(genericIdentity);
             return Redirect(model.ReturnUrl);
         }
     }
