@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Security.Claims;
 using System.Security.Principal;
-using System.Threading;
 using System.Web;
-using System.Web.Http.Controllers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using VNT.Core.Business;
+using VNT.Core.EF.DataAccess.Model;
+using VNT.Core.Web.Models;
 using VNT.UI.Web.Models;
 
 namespace VNT.UI.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserBusiness _userBusiness;
+
+        public AccountController()
+        {
+            _userBusiness = new UserBusiness();
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -25,23 +33,53 @@ namespace VNT.UI.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            var genericIdentity = new GenericIdentity(model.UserName, DefaultAuthenticationTypes.ApplicationCookie);
-            genericIdentity.AddClaims(new[]
+            var user = new User
             {
-                new Claim(ClaimTypes.Name, model.UserName),
-                new Claim(ClaimTypes.Role, "Admin"),
-                new Claim("/CustomClaim/Permission", "Contact"), 
-            });
-            HttpContext.GetOwinContext().Authentication.SignIn(
-                new AuthenticationProperties
+                Username = model.Username,
+                Password = model.Password
+            };
+            if (_userBusiness.IsExisted(user))
+            {
+                var genericIdentity = new GenericIdentity(model.Username, DefaultAuthenticationTypes.ApplicationCookie);
+                genericIdentity.AddClaims(new[]
                 {
-                    IsPersistent = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                },
-                genericIdentity
-            );
-            Thread.CurrentPrincipal = new ClaimsPrincipal(genericIdentity);
-            return Redirect(model.ReturnUrl);
+                    new Claim(ClaimTypes.Name, model.Username),
+                    new Claim(ClaimTypes.Role, "Admin"),
+                    new Claim("/CustomClaim/Permission", "Contact"),
+                });
+                HttpContext.GetOwinContext().Authentication.SignIn(
+                    new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+                    },
+                    genericIdentity
+                );
+                if (string.IsNullOrEmpty(model.ReturnUrl))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                return Redirect(model.ReturnUrl);
+            }
+            ModelState.AddModelError("", "tk ko ton tai");
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            _userBusiness.Create(new User
+            {
+                Username = model.Username,
+                Password = model.Password
+            });
+            return View("Login");
         }
     }
 }
