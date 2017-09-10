@@ -1,13 +1,12 @@
-﻿using System;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
 using VNT.Core.Business.Contract;
 using VNT.Core.Model;
 using VNT.Core.Web.Models;
+using VNT.Security.Authentication;
 using VNT.UI.Web.Models;
 
 namespace VNT.UI.Web.Controllers
@@ -47,14 +46,8 @@ namespace VNT.UI.Web.Controllers
                     new Claim(ClaimTypes.Role, "Admin"),
                     new Claim("/CustomClaim/Permission", "Contact"),
                 });
-                HttpContext.GetOwinContext().Authentication.SignIn(
-                    new AuthenticationProperties
-                    {
-                        IsPersistent = true,
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                    },
-                    genericIdentity
-                );
+                var authentication = new CookieBaseAuthentication(HttpContext.GetOwinContext(), genericIdentity);
+                authentication.SignIn();
                 if (string.IsNullOrEmpty(model.ReturnUrl))
                 {
                     return RedirectToAction("Index", "Home");
