@@ -187,6 +187,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Filters\PermissionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,6 +206,7 @@
     <Content Include="Content\assets\css\to-do.css" />
     <Content Include="Content\assets\css\zabuto_calendar.css" />
     <Content Include="Content\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\assets\font-awesome\css\Roboto.css" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\img\blog-bg.jpg" />
@@ -241,6 +243,8 @@
     <Content Include="Content\assets\img\ui-sam.jpg" />
     <Content Include="Content\assets\img\ui-sherman.jpg" />
     <Content Include="Content\assets\img\ui-zac.jpg" />
+    <Content Include="Content\assets\img\us-logo.jpg" />
+    <Content Include="Content\assets\img\vi-logo.jpg" />
     <Content Include="Content\assets\img\weather.jpg" />
     <Content Include="Content\assets\img\zoom.png" />
     <Content Include="Content\assets\js\bootstrap-inputmask\bootstrap-inputmask.min.js" />
@@ -291,14 +295,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\assets\font-awesome\.DS_Store" />
-    <Content Include="Content\assets\font-awesome\css\.DS_Store" />
-    <Content Include="Content\assets\font-awesome\fonts\.DS_Store" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\assets\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Content\assets\fonts\.DS_Store" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff" />
@@ -358,6 +358,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Script\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -374,6 +375,10 @@
     <ProjectReference Include="..\VNT.Core.Business\VNT.Core.Business.csproj">
       <Project>{846b13d8-7fbb-4579-a3f4-c0b66fdb55f9}</Project>
       <Name>VNT.Core.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VNT.Core.Resource\VNT.Core.Resource.csproj">
+      <Project>{fbd0fffe-1ad3-47dc-a35e-5a91580ba293}</Project>
+      <Name>VNT.Core.Resource</Name>
     </ProjectReference>
     <ProjectReference Include="..\VNT.Core\VNT.Core.csproj">
       <Project>{50388CAD-CF88-4D0C-9E16-4A5DF57D63DE}</Project>

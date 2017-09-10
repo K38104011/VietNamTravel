@@ -13,7 +13,7 @@ Premium: http://www.gridgum.com
 body {
     color: #797979;
 	background: #f2f2f2;
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Roboto', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
@@ -2240,7 +2240,13 @@ label {
     min-height: 900px;
 }
 
+/*VietNamTravel Custom Css*/
+
 /*https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height*/
 .allButFooter {
     min-height: calc(100vh - 35px); 
+}
+
+.language-logo {
+    height: 30px;
 }

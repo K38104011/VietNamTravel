@@ -43,6 +43,7 @@ namespace VNT.UI.Web
             bundles.Add(new StyleBundle("~/bundles/themeStyle").Include(
                 "~/Content/assets/css/bootstrap.css",
                 "~/Content/assets/font-awesome/css/font-awesome.css",
+                "~/Content/assets/font-awesome/css/Roboto.css",
                 "~/Content/assets/css/zabuto_calendar.css",
                 "~/Content/assets/js/gritter/css/jquery.gritter.css",
                 "~/Content/assets/lineicons/style.css",
