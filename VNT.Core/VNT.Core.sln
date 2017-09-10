@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNT.Core", "VNT.Core\VNT.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNT.Core.Resource", "VNT.Core.Resource\VNT.Core.Resource.csproj", "{FBD0FFFE-1AD3-47DC-A35E-5A91580BA293}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNT.Security", "VNT.Security\VNT.Security.csproj", "{698231BB-FB56-438F-A2D4-8D3B81803C83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FBD0FFFE-1AD3-47DC-A35E-5A91580BA293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD0FFFE-1AD3-47DC-A35E-5A91580BA293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD0FFFE-1AD3-47DC-A35E-5A91580BA293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{698231BB-FB56-438F-A2D4-8D3B81803C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698231BB-FB56-438F-A2D4-8D3B81803C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698231BB-FB56-438F-A2D4-8D3B81803C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698231BB-FB56-438F-A2D4-8D3B81803C83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

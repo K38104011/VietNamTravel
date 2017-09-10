@@ -180,7 +180,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiFilters\PermissionAttribute.cs" />
     <Compile Include="App_Start\ApiConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -188,7 +187,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
-    <Compile Include="Filters\PermissionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -357,7 +355,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Script\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +380,10 @@
     <ProjectReference Include="..\VNT.Core\VNT.Core.csproj">
       <Project>{50388CAD-CF88-4D0C-9E16-4A5DF57D63DE}</Project>
       <Name>VNT.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VNT.Security\VNT.Security.csproj">
+      <Project>{698231bb-fb56-438f-a2d4-8d3b81803c83}</Project>
+      <Name>VNT.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,10 +1,9 @@
 ﻿using System.Linq;
-using System.Net.Http;
 using System.Security.Claims;
-using System.Web.Http;
-using System.Web.Http.Controllers;
+using System.Web;
+using System.Web.Mvc;
 
-namespace VNT.UI.Web.ApiFilters
+namespace VNT.Security.CustomAttributes.Mvc
 {
     public class PermissionAttribute : AuthorizeAttribute
     {
@@ -14,11 +13,9 @@ namespace VNT.UI.Web.ApiFilters
             _permissions = permissions;
         }
 
-        protected override bool IsAuthorized(HttpActionContext actionContext)
+        protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var controllerRequest = actionContext.ControllerContext.Request;
-            var identity = (ClaimsIdentity) controllerRequest.GetOwinContext().Request.User
-                .Identity;
+            var identity = (ClaimsIdentity) httpContext.GetOwinContext().Request.User.Identity;
             if (identity.IsAuthenticated)
             {
                 var claims = identity.Claims;
@@ -30,6 +27,5 @@ namespace VNT.UI.Web.ApiFilters
             }
             return false;
         }
-
     }
 }

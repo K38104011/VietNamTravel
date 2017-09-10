@@ -1,6 +1,5 @@
-﻿using System.Net.Http;
-using System.Web.Http;
-using VNT.UI.Web.ApiFilters;
+﻿using System.Web.Http;
+using VNT.Security.CustomAttributes.WebApi;
 
 namespace VNT.UI.Web.WebApi
 {
