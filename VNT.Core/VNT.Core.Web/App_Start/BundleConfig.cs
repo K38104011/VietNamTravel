@@ -49,6 +49,17 @@ namespace VNT.UI.Web
                 "~/Content/assets/css/style.css",
                 "~/Content/assets/css/style-responsive.css"
                 ));
+
+            bundles.Add(new StyleBundle("~/bundles/loginStyle").Include(
+                "~/Content/assets/css/bootstrap.css",
+                "~/Content/assets/font-awesome/css/font-awesome.css",
+                "~/Content/assets/css/style.css",
+                "~/Content/assets/css/style-responsive.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/loginScript").Include(
+                "~/Content/assets/js/jquery.js",
+                "~/Content/assets/js/bootstrap.min.js",
+                "~/Content/assets/js/jquery.backstretch.min.js"));
         }
     }
 }
