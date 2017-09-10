@@ -81,5 +81,12 @@ namespace VNT.UI.Web.Controllers
             });
             return View("Login");
         }
+
+        [HttpGet]
+        public ActionResult SignOut()
+        {
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login");
+        }
     }
 }
