@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{846B13D8-7FBB-4579-A3F4-C0B66FDB55F9}</ProjectGuid>
+    <ProjectGuid>{F7250283-3B56-4613-92FF-BF64F4DF1BEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VNT.Core.Business</RootNamespace>
-    <AssemblyName>VNT.Core.Business</AssemblyName>
+    <RootNamespace>VNT.Sdk</RootNamespace>
+    <AssemblyName>VNT.Sdk</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,27 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\IUserBusiness.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserBusiness.cs" />
-    <Compile Include="WireUpModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VNT.Core.EF.DataAccess\VNT.Core.EF.DataAccess.csproj">
       <Project>{6278399a-2272-47c4-9de1-b9695d528cee}</Project>
       <Name>VNT.Core.EF.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VNT.Core\VNT.Core.csproj">
-      <Project>{50388cad-cf88-4d0c-9e16-4a5df57d63de}</Project>
-      <Name>VNT.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VNT.Sdk\VNT.Sdk.csproj">
-      <Project>{f7250283-3b56-4613-92ff-bf64f4df1bee}</Project>
-      <Name>VNT.Sdk</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

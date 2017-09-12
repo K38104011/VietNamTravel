@@ -1,15 +1,14 @@
 ﻿using Autofac;
 using VNT.Core.Business.Contract;
+using VNT.Sdk;
 
 namespace VNT.Core.Business
 {
-    public class WireUpModule : Module
+    public class WireUpModule : Bootstrapper
     {
-        protected override void Load(ContainerBuilder builder)
+        public override void WireUp()
         {
-            builder.RegisterModule<VNT.Core.EF.DataAccess.WireUpModule>();
-            builder.RegisterType<UserBusiness>().As<IUserBusiness>();
-            base.Load(builder);
+            ContainerBuilder.RegisterType<UserBusiness>().As<IUserBusiness>();
         }
     }
 }

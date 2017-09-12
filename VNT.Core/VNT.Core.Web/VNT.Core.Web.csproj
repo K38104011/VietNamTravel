@@ -379,6 +379,10 @@
       <Project>{50388CAD-CF88-4D0C-9E16-4A5DF57D63DE}</Project>
       <Name>VNT.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VNT.Sdk\VNT.Sdk.csproj">
+      <Project>{f7250283-3b56-4613-92ff-bf64f4df1bee}</Project>
+      <Name>VNT.Sdk</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VNT.Security\VNT.Security.csproj">
       <Project>{698231bb-fb56-438f-a2d4-8d3b81803c83}</Project>
       <Name>VNT.Security</Name>
